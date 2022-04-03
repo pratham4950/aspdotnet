@@ -37,3 +37,22 @@ very worst service/staff as we faced in sterling.
             return table;
         }
         
+        
+            public void DownloadExcel(DataTable objSql, string FileName)
+        {
+            try
+            {
+                LogPhase2.Logger("DownloadExcel Begin Phase2 :- ");
+                XLWorkbook workbook = new XLWorkbook();
+                string savePath = Path.Combine("./Output/Phase2/" + FileName);
+                workbook.Worksheets.Add(objSql, "Sheet1");
+                workbook.SaveAs(savePath, false);
+                LogPhase2.Logger("DownloadExcel End Phase2 :- ");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        
+        
